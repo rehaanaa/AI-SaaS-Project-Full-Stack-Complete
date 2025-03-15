@@ -1,0 +1,25 @@
+services:
+  - name: ai-saas-backend
+    type: web
+    env: docker
+    repo: https://github.com/rehaanaa/AI-SaaS-Project-Full-Stack-Complete
+    branch: main
+    dockerfilePath: Dockerfile     envVars:
+      - key: MONGO_URI
+        value: "mongodb://mongo:27017/ai_saas_db"
+      - key: JWT_SECRET
+        value: "mysecretkey"
+      - key: STRIPE_SECRET_KEY
+        value: "sk_test_your_stripe_key"
+
+  - name: ai-saas-frontend
+    type: web
+    env: docker
+    repo: https://github.com/rehaanaa/AI-SaaS-Project-Full-Stack-Complete
+    branch: main
+    dockerfilePath: Dockerfile
+
+  - name: mongo-db
+    type: database
+    databaseName: ai_saas_db
+    plan: free
